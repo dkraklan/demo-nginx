@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 
 from flask import Flask
+import os 
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return "Hey, it works!"
+    env_test = os.getenv("ENV_TEST", "ENV Not Set!") 
+    return "Hey, it works! <br> ENV_TEST: " + env_test
 
 
 if __name__ == "__main__":
